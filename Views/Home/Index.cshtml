@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid">
+    <div class="border rounded-1 mb-3 p-1" id="connectionId">
+    </div>
+    <div class="accordion" id="accordionExample">
+        <!-- #region Akordiyon -->
+
+        <partial name="Partial/_SendMessage.cshtml" />
+
+        <!-- #endregion -->
+        <!-- #region Akordiyon 1 -->
+
+        <partial name="Partial/_AllExcept.cshtml" />
+
+        <!-- #endregion -->
+        <!-- #region Akordiyon 2 -->
+
+        <partial name="Partial/_ClientMessage.cshtml" />
+
+        <!-- #endregion -->
+        <!-- #region Akordiyon 3 -->
+
+        <partial name="Partial/_ClientsMessage.cshtml" />
+
+        <!-- #endregion -->
+        <!-- #region Akordiyon 4 -->
+
+        <partial name="Partial/_GroupMessage.cshtml" />
+
+        <!-- #endregion -->
+    </div>
+
+
+</div>
+<script src="~/microsoft-signalr/signalr.min.js"></script>
+<script src="~/js/chathub.js"></script>

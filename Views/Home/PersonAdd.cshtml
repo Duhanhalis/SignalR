@@ -1,0 +1,22 @@
+﻿@model Person
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+    <form asp-action="PersonAdd" asp-controller="Home" method="post">
+        <label class="text-secondary" asp-for="FirstName"></label>
+        <input class="form-control" type="text" asp-for="FirstName" />
+
+        <label class="text-secondary" asp-for="LastName"></label>
+        <input class="form-control" type="text" asp-for="LastName" />
+
+        <label class="text-secondary" asp-for="City"></label>
+        <input class="form-control" type="text" asp-for="City" />
+
+        <label class="text-secondary" asp-for="Age"></label>
+        <input class="form-control" type="Age" asp-for="Age" />
+
+        <button class="btn btn-success">Ekle</button>
+    </form>
+</div>

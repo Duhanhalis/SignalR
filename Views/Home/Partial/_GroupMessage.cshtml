@@ -1,0 +1,83 @@
+﻿<div class="accordion-item">
+    <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseOne">
+            Grup Oluştur.
+        </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <!-- #region Body -->
+            <div class="container" id="container-body-4">
+                <div class="row p-3 border rounded-1">
+                    <div class="col-12">
+                        <h5 class="text-center text-danger">Grup Katıl.</h5>
+                        <hr />
+                    </div>
+                    <div class="col-6 row">
+                        <div class="col-12 my-2">
+                            <label class="text-secondary">Grubun İsmi :</label>
+                            <input type="text" class="form-control" id="textboxinput" />
+                        </div>
+                        <div class="col-12 row gap-1 p-0 m-0 justify-content-center">
+                            <button class="col-5 btn btn-success p-0" id="sendbtn">Gir !</button>
+                            <button class="col-5 btn btn-danger p-0" id="sendbtn-1">Çık !</button>
+                        </div>
+
+                        <div class="col-12 my-2">
+                            <label class="text-secondary">Kullanıcı İsmin :</label>
+                            <input type="text" class="form-control" id="textboxinput-1" />
+                        </div>
+                        <div class="col-12 my-2">
+                            <label class="text-secondary">Mesaj :</label>
+                            <input type="text" class="form-control" id="textboxinput-2" />
+                        </div>
+
+                        <div class="col-12 row gap-1 p-0 m-0 justify-content-center">
+                            <button class="col-5 btn btn-success p-0" id="sendbtn-2">Gönder</button>
+                            <a href="" class="col-5 text-center btn btn-primary p-0" target="_blank">Yeni Sekme</a>
+                        </div>
+                    </div>
+                    <div class="col-6 overflow-auto" style="height:400px;">
+                        <table class="table table-hover table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">İsim</th>
+                                    <th scope="col">Mesaj</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- #endregion -->
+        </div>
+    </div>
+</div>
+
+<script>
+   
+    //#region Herkese Mesaj Gonder Butonu
+    document.querySelector('#container-body-4 #sendbtn').addEventListener('click', function (e) {
+        e.preventDefault();
+        let inputvalue = document.querySelector('#container-body-4 #textboxinput').value;
+        connection.invoke("JoinGroupMethods", inputvalue);
+    });
+
+    document.querySelector('#container-body-4 #sendbtn-1').addEventListener('click', function (e) {
+        e.preventDefault();
+        let inputvalue = document.querySelector('#container-body-4 #textboxinput').value;
+        connection.invoke("LeaveGroupMethods", inputvalue);
+    });
+
+    document.querySelector('#container-body-4 #sendbtn-2').addEventListener('click', function (e) {
+        e.preventDefault();
+        let inputvalue = document.querySelector('#container-body-4 #textboxinput-1').value;
+        let message = document.querySelector('#container-body-4 #textboxinput-2').value;
+        let groupvalue = document.querySelector('#container-body-4 #textboxinput').value;
+        connection.invoke("SendGroupMessageMethods", inputvalue,message,groupvalue);
+    });
+    //#endregion
+</script>
